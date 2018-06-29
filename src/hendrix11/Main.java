@@ -14,12 +14,12 @@ import java.io.PrintWriter;
  */
 public class Main {
     public static void main(String[] string) throws IOException {
-        String what = "eth";
+        String what = "ltc";
         
-        Form form = new Form(what);
+        Form form = new Form(what, 2017, 2018);
         form.generate();
-        form.condense();
-        String out = form.toString();
+        //form.condense();
+        String out = form.toStringForYear(2018);
         System.out.println(out);
         PrintWriter pw = new PrintWriter(what + ".form8949.csv");
         pw.print(out);

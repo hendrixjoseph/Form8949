@@ -9,6 +9,8 @@ package hendrix11;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.StringJoiner;
 
@@ -16,17 +18,17 @@ import java.util.StringJoiner;
  *
  */
 public class FormRow {
-    private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static DateTimeFormatter dateFormat = DateTimeFormatter.ISO_LOCAL_DATE;
     public static final DecimalFormat coinFormat = new DecimalFormat("0.00000000");
     public static final DecimalFormat dollarFormat = new DecimalFormat("$0.00");
     
     private double amount;
-    private Date aquired;
-    private Date sold;
+    private LocalDateTime aquired;
+    private LocalDateTime sold;
     private double proceeds;
     private double cost;
 
-    public FormRow(double amount, Date aquired, Date sold, double proceeds, double cost) {
+    public FormRow(double amount, LocalDateTime aquired, LocalDateTime sold, double proceeds, double cost) {
         this.amount = amount;
         this.aquired = aquired;
         this.sold = sold;
@@ -34,7 +36,7 @@ public class FormRow {
         this.cost = cost;
     }
 
-    public FormRow(double amount, Date sold, double proceeds, double cost) {
+    public FormRow(double amount, LocalDateTime sold, double proceeds, double cost) {
         this(amount, null, sold, proceeds, cost);
     }
 
@@ -42,13 +44,11 @@ public class FormRow {
         return amount;
     }
 
-    public Date getAquired() {
+    public LocalDateTime getAquired() {
         return aquired;
-    }
-    
-    
+    }    
 
-    public Date getSold() {
+    public LocalDateTime getSold() {
         return sold;
     }
 

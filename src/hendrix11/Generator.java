@@ -6,10 +6,15 @@
 
 package hendrix11;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Stack;
+
+import hendrix11.transactions.NormalTransaction;
+import hendrix11.transactions.Transaction;
+import hendrix11.transactions.WashTransaction;
 
 /**
  *
@@ -30,7 +35,7 @@ public class Generator {
         } else if(transaction.isSell()) {
             double amount = transaction.getAmount();
             double cost = 0;
-            Date date = lifo.peek().getDate();
+            LocalDateTime date = lifo.peek().getDate();
                 
             while(amount < 0) {
                 Transaction buy = lifo.pop();

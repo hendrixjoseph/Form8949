@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hendrix11;
+package hendrix11.transactions;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -16,7 +17,7 @@ public interface Transaction {
 
     double getCost();
 
-    Date getDate();
+    LocalDateTime getDate();
 
     double getPrice();
 

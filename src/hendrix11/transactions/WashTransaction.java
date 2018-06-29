@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package hendrix11;
+package hendrix11.transactions;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -30,7 +31,7 @@ public class WashTransaction implements Transaction {
     }
 
     @Override
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return null;
     }
 

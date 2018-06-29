@@ -8,9 +8,7 @@ package hendrix11;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,8 +29,8 @@ public class Condenser {
         double[] amount = {0, 0};
         double[] cost = {0, 0};
         double[] proceeds = {0, 0};
-        Date[] sold = {null, null};
-        Date[] bought = {null, null};
+        LocalDateTime[] sold = {null, null};
+        LocalDateTime[] bought = {null, null};
         
         boolean[] first = {true, true};
 
@@ -72,24 +70,16 @@ public class Condenser {
         }
     }
     
-    private boolean sameDate(Date date1, Date date2) {
+    private boolean sameDate(LocalDateTime date1, LocalDateTime date2) {
         if(date1 == null || date2 == null) {
             return false;
         } else {
-            return toLocalDate(date1).equals(toLocalDate(date2));
+            return date1.toLocalDate().equals(date2.toLocalDate());
         }
     }
-        
-    private LocalDate toLocalDate(Date date) {
-        if(date == null) {
-            return null;
-        } else {
-            return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()).toLocalDate();
-        }
-    }
-    
+           
     private void process(FormRow row) {        
-        LocalDate date = toLocalDate(row.getSold());
+        LocalDate date = row.getSold().toLocalDate();
 
         if (map.get(date) == null) {
             map.put(date, new ArrayList<>());

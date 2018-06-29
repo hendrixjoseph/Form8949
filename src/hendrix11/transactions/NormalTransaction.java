@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 
-package hendrix11;
+package hendrix11.transactions;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  *
  */
 public class NormalTransaction implements Transaction {
-    private Date date;
+    private LocalDateTime date;
     private double amount;
     private double price;
 
-    public NormalTransaction(Date date, double amount, double price) {
+    public NormalTransaction(LocalDateTime date, double amount, double price) {
         this.date = date;
         this.amount = amount;
         this.price = price;
@@ -27,7 +27,7 @@ public class NormalTransaction implements Transaction {
     }
 
     @Override
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
